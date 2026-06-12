@@ -1,0 +1,27 @@
+# Visual Studio
+.vs/
+.vscode/
+
+# Build
+bin/
+obj/
+
+# Logs
+*.log
+
+# User files
+*.user
+*.suo
+
+# Publish profiles user-specific
+*.pubxml.user
+
+# NuGet
+packages/
+
+# Rider
+.idea/
+
+# Windows
+Thumbs.db
+Desktop.ini
