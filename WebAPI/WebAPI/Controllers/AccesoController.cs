@@ -48,6 +48,7 @@ namespace WebAPI.Controllers
                 return StatusCode(StatusCodes.Status200OK, new { isSuccess = false });
             */
 
+            /*
             var usuarioExistente = await _dbPruebaContext.Usuarios
                     .FirstOrDefaultAsync(u => u.Correo == objeto.Correo);
 
@@ -71,6 +72,10 @@ namespace WebAPI.Controllers
                 return StatusCode(StatusCodes.Status200OK, new { isSuccess = true });
             else
                 return StatusCode(StatusCodes.Status200OK, new { isSuccess = false });
+
+            */
+
+
 
         }
 
