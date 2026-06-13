@@ -29,6 +29,32 @@ namespace WebAPI.Controllers
         [Route("Registrarse")]
         public async Task<IActionResult> Registrarse(UsuarioDTO objeto)
         {
+            /*
+            var modeloUsuario = new Usuario
+            {
+                Nombre = objeto.Nombre,
+                Correo = objeto.Correo,
+                //  Desde aca encriptamos la clave con la funcion creada
+                Clave = _utilidades.encriptarSHA256(objeto.Clave)
+            };
+
+            //await _dbPruebaContext.Usuarios.AddAsync(modeloUsuario);
+            await _dbPruebaContext.Usuarios.AddAsync(modeloUsuario);
+            await _dbPruebaContext.SaveChangesAsync();
+
+            if (modeloUsuario.IdUsuario != 0)
+                return StatusCode(StatusCodes.Status200OK, new { isSuccess = true });
+            else
+                return StatusCode(StatusCodes.Status200OK, new { isSuccess = false });
+            */
+
+            var usuarioExistente = await _dbPruebaContext.Usuarios
+                    .FirstOrDefaultAsync(u => u.Correo == objeto.Correo);
+
+            if(usuarioExistente != null)
+                return StatusCode(StatusCodes.Status200OK, new { isSuccess = false });
+
+
             var modeloUsuario = new Usuario
             {
                 Nombre = objeto.Nombre,
